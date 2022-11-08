@@ -1,0 +1,168 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Teacher's Dashboard</title>
+   <!-- swiper css link  -->
+   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+   <header class="header">
+
+      <section class="flex">
+
+         <a href="#home" class="logo">Funacademy</a>
+
+         <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#contact">contact</a>
+            <a href="{% url 'index' %}">My Videos</a>
+            <a href="{% url 'main' %}">Live class</a>
+            <a href="{% url 'logout' %}">Logout</a>
+
+         </nav>
+
+         <div id="menu-btn" class="fas fa-bars"></div>
+
+      </section>
+
+   </header>
+
+   <!-- header section ends -->
+
+   <!-- home section starts  -->
+
+   <section class="home" id="home">
+
+      <div class="row">
+
+         <div class="content">
+            <h3><span>Welcome</span></h3>
+            <a href="#contact" class="btn">Contact us</a>
+         </div>
+
+         <div class="image">
+            <img src="{% static 'images/homg-img.svg' %}" alt="">{% csrf_token %}
+         </div>
+
+      </div>
+
+   </section>
+
+   <!-- home section ends -->
+
+   <!-- <section>
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+         <div class="carousel-indicators">
+           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+         </div>
+         <div class="carousel-inner">
+           <div class="carousel-item active">
+             <img src="..." class="d-block w-100" alt="...">
+           </div>
+           <div class="carousel-item">
+             <img src="..." class="d-block w-100" alt="...">
+           </div>
+           <div class="carousel-item">
+             <img src="..." class="d-block w-100" alt="...">
+           </div>
+         </div>
+         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+           <span class="visually-hidden">Previous</span>
+         </button>
+         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+           <span class="carousel-control-next-icon" aria-hidden="true"></span>
+           <span class="visually-hidden">Next</span>
+         </button>
+       </div>
+   </section> -->
+
+   <!-- contact section starts  -->
+
+   <section class="contact" id="contact">
+
+      <h1 class="heading"><span>contact</span> us</h1>
+
+      <div class="row">
+
+         <div class="image">
+            <img src="{% static 'images/contact-img.svg' %}" alt="">{% csrf_token %}
+         </div>
+
+         <form action="https://formsubmit.co/aradhyaram7@gmail.com" method="post">
+            <span>your name</span>
+            <input type="text" required placeholder="enter your full name" maxlength="50" name="name" class="box">
+            <span>your email</span>
+            <input type="email" required placeholder="enter your valie email" maxlength="50" name="email" class="box">
+            <span>your number</span>
+            <input type="number" required placeholder="enter your valie number" max="9999999999" min="0" name="number"
+               class="box" onkeypress="if(this.value.length == 10) return false;">
+            <span>select course</span>
+            <select name="couses" class="box" required>
+               <option value="" disabled selected>select the course --</option>
+               <option value="web developement">web developement</option>
+               <option value="science and biology">science and biology</option>
+               <option value="engineering">engineering</option>
+               <option value="digital marketing">digital marketing</option>
+               <option value="graphic design">graphic design</option>
+               <option value="teaching">teaching</option>
+               <option value="social studies">social studies</option>
+               <option value="data analysis">data analysis</option>
+               <option value="artificial intelligence">artificial intelligence</option>
+            </select>
+            <span>select gender</span>
+            <div class="radio">
+               <input type="radio" name="gender" value="male" id="male">
+               <label for="male">male</label>
+               <input type="radio" name="gender" value="female" id="female">
+               <label for="female">female</label>
+            </div>
+            <span>Inquiry</span>
+            <input type="text" required placeholder="Enter your inquiry" maxlength="150" name="inquiry" class="box">
+            <input type="submit" value="send message" class="btn" name="send">
+         </form>
+
+      </div>
+   </section>
+
+   <!-- <section class="video" id="video">
+      <div class="container">
+         {% for x in video %}
+         <h3 class="text-center mt-2 mb-2">{{x.caption}}</h3>
+         <video class="embed-responsive embed-responsive-16by9" controls="controls">
+            <source src="{{x.video.url}}" type="video/mp4" />
+          </video>
+         {% endfor %}
+      </div>
+
+   </section> -->
+
+   <!-- <section class="logout" id="logout">
+      <form method="post" action="{% url 'logout' %}">
+         {% csrf_token %}
+         <input type="submit" value="logout">
+      </form>
+   </section>
+   <section class="live" id="live">
+      <form method="post" action="{% url 'main' %}">
+         {% csrf_token %}
+         <input type="submit" value="main">
+      </form>
+   </section> -->
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>My Videos</title>
+   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+   <h1 style="color:goldenrod; text-align:center; font-size: 80px;">My Videos</h1>
+   <div class="container" style="align-items:center;">
+      {% for x in video %}
+      <ul>
+         <li>
+            <h1 class="text-center mt-2 mb-2" style="color:white; font-size: 50px;">{{x.caption}}</h1>
+            <video class="embed-responsive embed-responsive-4by3" style="max-width: 80vw; max-height:80vh; align-items: center;" controls="controls">
+               <source src="{{x.video.url}}" type="video/mp4" />
+             </video>
+         </li>
+         
+      </ul>
+         {% endfor %}
+   </div>
+</body>
+</html>

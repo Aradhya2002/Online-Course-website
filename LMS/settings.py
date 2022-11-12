@@ -132,4 +132,4 @@ ASGI_APPLICATION = 'LMS.asgi.application'
 MEDIA_URL="/media/"
 MEDIA_ROOT=os.path.join(BASE_DIR, '/media/')
 
-STATIC_ROOT = os.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
